@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>PedalSafe Route Planner</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>PedalSafe Route Planner</h1>
+
+    <form method="post">
+      <label for="origin">ORIGIN:</label>
+      <input
+        style="width: 350px"
+        style="margin-bottom: 10px"
+        name="origin"
+        id="origin"
+        required
+      />
+      <br />
+      <label for="destination">DESTINATION:</label>
+      <input
+        style="width: 350px"
+        style="margin-bottom: 10px"
+        name="destination"
+        id="destination"
+        required
+      />
+      <br />
+      <input style="margin-bottom: 10px" type="submit" value="Generate map" />
+    </form>
+
+    <div style="text-align: center;">
+      <div style="display: inline-block; text-align: left;">
+        {% if route_distance_and_time %}
+        <b>From: </b>
+        <span> {{origin_address}}</span>
+        <br />
+        <b>To: </b>
+        <span style="margin-bottom: 10px">{{destination_address}}</span>
+        <br />
+    
+        <b>Distance (mi): </b>
+        <span> {{route_distance_and_time[0]}}</span>
+        <br />
+        <b>Travel time (min): </b>
+        <span style="margin-bottom: 10px">{{route_distance_and_time[1]}}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="box">
+      <iframe srcdoc="{{ route_map }}" width="80%" height="550"></iframe>
+    </div>
+  </body>
+</html>
