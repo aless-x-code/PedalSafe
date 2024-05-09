@@ -22,7 +22,8 @@ def parse_file(signal, raw_file, new_file_name):
     if not signal: return 0 
 
     # import raw file
-    raw_file = geopandas.read_file(raw_file, bbox=(-74.018326,40.704587,-73.893356,40.817447))
+    raw_file = geopandas.read_file(raw_file)
+    # raw_file = geopandas.read_file(raw_file, bbox=(-74.018326,40.704587,-73.893356,40.817447)) <<-- testing
 
     # only keep relevant columns
     columns_to_keep = [col for col in raw_file.columns if "geometry" in col or "bike_lane" in col or "physicalid" in col or "bike_trafd" in col or "trafdir" in col or "shape_leng" in col or "rw_type" in col or "snow_pri" in col]
