@@ -2,6 +2,8 @@
 
 PedalSafe Route Planner is a web app designed to calculate and visualize the _safest_ bike routes between two locations in New York City. It factors distance, and cycling lanes level of protection, resulting in the safest and shortest way of getting from point A to B.  
 
+![PedalSafe Route Planner](https://i.imgur.com/LuOaPRU.jpeg)
+
 ## Features
 - **Dynamic Route Calculation:** Input an origin and destination to receive the optimal bike route, considering bike lane hierarchy, travel distance, and road network directionality.
 - **Visualization:** View the route on an interactive map with overlays for bike lanes and road networks.
